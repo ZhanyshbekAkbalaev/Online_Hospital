@@ -7,6 +7,9 @@ import java.util.List;
 public class Database {
     private List<Hospital> hospitals;
 
+    public Database() {
+    }
+
     public Database(List<Hospital> hospitals) {
         this.hospitals = hospitals;
     }
