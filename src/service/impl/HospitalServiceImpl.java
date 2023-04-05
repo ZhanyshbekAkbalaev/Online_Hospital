@@ -1,5 +1,6 @@
 package service.impl;
 
+import database.Database;
 import models.Hospital;
 import service.HospitalService;
 
