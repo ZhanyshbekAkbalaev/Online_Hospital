@@ -2,22 +2,28 @@ package dao.impl;
 
 import database.Database;
 import models.Doctor;
+import models.Hospital;
 
 import java.util.List;
 
 public class DoctorDaoImpl implements DoctorDao{
-    Database database = new Database()
+    Database database = new Database();
     @Override
     public String addDoctorToHospital(Long id, Doctor doctor) {
-        databases.ad
+        for (Hospital hospital : database.getHospitals()) {
+            if (hospital.getId()==id){
+                hospital.getDoctors().add(doctor);
+            }else {
 
-
-
+            }
+        }
         return null;
     }
 
     @Override
-    public Doctor findDoctorById(Long id) {
+    public  Doctor findDoctorById(Long id) {
+
+
         return null;
     }
 
