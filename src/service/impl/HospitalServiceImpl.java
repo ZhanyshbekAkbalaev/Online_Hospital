@@ -1,6 +1,7 @@
 package service.impl;
 
 import models.Hospital;
+import models.Patient;
 import service.HospitalService;
 
 import java.util.List;

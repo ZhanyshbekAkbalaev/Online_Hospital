@@ -3,19 +3,20 @@ package dao.impl;
 import dao.HospitalDao;
 import database.Database;
 import models.Hospital;
+import models.Patient;
 
 import java.util.List;
 import java.util.Map;
 
 public class HospitalDaoImpl implements HospitalDao {
-    private List<Database> db;
+    private List<Database> data;
 
     @Override
     public String addHospital(Hospital hospital) {
-        for (Database database : db) {
+        for (Database database : data) {
             database.getHospitals().add(hospital);
         }
-        return "Successfully add Hospital!";
+        return "Succesfully add Hospital!";
     }
 
     @Override

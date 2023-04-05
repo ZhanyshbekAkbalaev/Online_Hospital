@@ -1,5 +1,7 @@
 package models;
 
+import enums.Gender;
+
 public class Patient {
     private Long id;
     private String firstName;

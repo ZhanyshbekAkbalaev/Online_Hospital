@@ -1,6 +1,7 @@
 package service;
 
 import models.Hospital;
+import models.Patient;
 
 import java.util.List;
 import java.util.Map;
