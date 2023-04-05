@@ -2,14 +2,15 @@ package dao.impl;
 
 import database.Database;
 import models.Doctor;
+import models.Hospital;
 
 import java.util.List;
 
 public class DoctorDaoImpl implements DoctorDao{
-    Database database = new Database()
+    Database database = new Database();
     @Override
     public String addDoctorToHospital(Long id, Doctor doctor) {
-        databases.ad
+
 
 
 
@@ -18,6 +19,11 @@ public class DoctorDaoImpl implements DoctorDao{
 
     @Override
     public Doctor findDoctorById(Long id) {
+        for (Hospital hosp : database.getHospitals()) {
+            if (hosp.getId() == id) {
+                System.out.println(hosp.getDoctors());
+            }
+        }
         return null;
     }
 
