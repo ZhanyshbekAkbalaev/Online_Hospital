@@ -2,10 +2,11 @@ package database;
 
 import models.Hospital;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    private List<Hospital> hospitals;
+    private List<Hospital> hospitals = new ArrayList<>();
 
     public Database() {
     }
@@ -13,6 +14,7 @@ public class Database {
     public Database(List<Hospital> hospitals) {
         this.hospitals = hospitals;
     }
+
 
     public List<Hospital> getHospitals() {
         return hospitals;
