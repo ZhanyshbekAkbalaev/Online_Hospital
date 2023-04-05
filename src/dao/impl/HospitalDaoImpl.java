@@ -7,9 +7,10 @@ import models.Patient;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class HospitalDaoImpl implements HospitalDao {
-    private List<Database> data;
+     List<Database> data;
 
     @Override
     public String addHospital(Hospital hospital) {
@@ -21,11 +22,22 @@ public class HospitalDaoImpl implements HospitalDao {
 
     @Override
     public Hospital findHospitalById(Long id) {
-        return null;
+        Hospital hosp = new Hospital();
+        for (Database database : data) {
+            for (Hospital hospital : database.getHospitals()) {
+                if(Objects.equals(hospital.getId(), id)){
+                    hosp = hospital;
+                }else {
+                    System.out.println(hospital + "No!");
+                }
+            }
+        }
+        return hosp;
     }
 
     @Override
     public List<Hospital> getAllHospital() {
+
         return null;
     }
 
