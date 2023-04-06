@@ -87,4 +87,8 @@ public class Hospital {
                 "\npatients: " + patients +
                 "\n~~~~~~~~~~~~~~~~\n";
     }
+
+    public void addDepartment(Department department) {
+        departments.add(department);
+    }
 }

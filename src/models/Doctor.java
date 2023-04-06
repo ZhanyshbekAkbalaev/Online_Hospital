@@ -12,6 +12,13 @@ public class Doctor {
     public Doctor() {
     }
 
+    public Doctor(Long id, String firstName, String lastName, int experienceYear) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.experienceYear = experienceYear;
+    }
+
     public Doctor(Long id, String firstName, String lastName, int experienceYear, Gender gender) {
         this.id = id;
         this.firstName = firstName;

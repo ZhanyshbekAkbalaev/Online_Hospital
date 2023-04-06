@@ -1,13 +1,14 @@
 package service.impl;
 
 import dao.DepartmentDao;
+import dao.impl.DepartmentDaoImpl;
 import models.Department;
 import service.DepartmentService;
 
 import java.util.List;
 
 public class DepartmentServiceImpl implements DepartmentService {
-    private DepartmentDao dao;
+    private DepartmentDao dao = new DepartmentDaoImpl();
     @Override
     public String addDepartmentToHospital(Long id, Department department) {
         return dao.addDepartmentToHospital(id,department);

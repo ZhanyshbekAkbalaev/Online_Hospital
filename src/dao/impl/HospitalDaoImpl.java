@@ -8,12 +8,12 @@ import models.Patient;
 import java.util.*;
 
 public class HospitalDaoImpl implements HospitalDao {
-    private Database data;
+    Database data = new Database();
 
     @Override
     public String addHospital(Hospital hospital) {
         data.getHospitals().add(hospital);
-        return "Succesfully add Hospital!";
+        return "Successfully add Hospital!";
     }
 
     @Override
@@ -49,26 +49,36 @@ public class HospitalDaoImpl implements HospitalDao {
 
     @Override
     public String deleteHospitalById(Long id) {
-        for (Hospital hospital : data.getHospitals()) {
-            if (Objects.equals(hospital.getId(), id)) {
-                data.getHospitals().remove(hospital);
-            } else {
-                return "No delete NO id!" + id;
+        try {
+            for (Hospital hospital : data.getHospitals()) {
+                if (hospital.getId().equals(id)) {
+                    data.getHospitals().remove(hospital);
+                } else {
+                    return "No delete NO id!" + id;
+                }
             }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
         return "Successfully remove hospita id" + id;
     }
 
     @Override
     public Map<String, Hospital> getAllHospitalByAddress(String address) {
-        Map<String, Hospital> getAll = new HashMap<>();
-        for (Hospital hospital : data.getHospitals()) {
-            if (hospital.getAddress().equals(address)) {
-                getAll.put(address, hospital);
-            } else {
-                System.out.println(address + "NO!! Address");
+        Map<String, Hospital> getAll = new TreeMap<>();
+        try {
+            for (Hospital hospital : data.getHospitals()) {
+                if (hospital.getAddress().equals(address)) {
+                    assert false;
+                    getAll.put(address, hospital);
+                } else {
+                    System.out.println(address + "NO!! Address");
+                }
             }
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
         }
         return getAll;
     }
+
 }

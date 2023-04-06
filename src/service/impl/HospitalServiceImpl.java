@@ -1,6 +1,7 @@
 package service.impl;
 
 import dao.HospitalDao;
+import dao.impl.HospitalDaoImpl;
 import models.Hospital;
 import models.Patient;
 import service.HospitalService;
@@ -9,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 public class HospitalServiceImpl implements HospitalService {
-    private HospitalDao dao;
+    private HospitalDao dao = new HospitalDaoImpl();
     @Override
     public String addHospital(Hospital hospital) {
         return dao.addHospital(hospital);
