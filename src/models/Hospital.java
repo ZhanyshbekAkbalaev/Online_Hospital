@@ -1,14 +1,15 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Hospital {
     private Long id;
     private String hospitalName;
     private String address;
-    private List<Department>departments;
-    private List<Doctor> doctors;
-    private List<Patient> patients;
+    private List<Department>departments=new ArrayList<>();
+    private List<Doctor> doctors=new ArrayList<>();
+    private List<Patient> patients=new ArrayList<>();
 
     public Hospital() {
     }
@@ -23,9 +24,7 @@ public class Hospital {
         this.id = id;
         this.hospitalName = hospitalName;
         this.address = address;
-        this.departments = departments;
-        this.doctors = doctors;
-        this.patients = patients;
+
     }
 
     public Long getId() {
@@ -88,7 +87,4 @@ public class Hospital {
                 "\n~~~~~~~~~~~~~~~~\n";
     }
 
-    public void addDepartment(Department department) {
-        departments.add(department);
-    }
 }

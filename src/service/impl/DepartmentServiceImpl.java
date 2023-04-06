@@ -8,7 +8,12 @@ import service.DepartmentService;
 import java.util.List;
 
 public class DepartmentServiceImpl implements DepartmentService {
-    private DepartmentDao dao = new DepartmentDaoImpl();
+    private DepartmentDao dao;
+
+    public DepartmentServiceImpl(DepartmentDao dao) {
+        this.dao = dao;
+    }
+
     @Override
     public String addDepartmentToHospital(Long id, Department department) {
         return dao.addDepartmentToHospital(id,department);
