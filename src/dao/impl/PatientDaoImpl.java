@@ -1,6 +1,6 @@
 package dao.impl;
 
-import dao.HospitalDao;
+import dao.PatientDao;
 import database.Database;
 import models.Hospital;
 import models.Patient;
