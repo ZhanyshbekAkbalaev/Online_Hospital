@@ -12,6 +12,7 @@ public class Patient {
     public Patient() {
     }
 
+
     public Patient(Long id, String firstName, String lastName, int age, Gender gender) {
         this.id = id;
         this.firstName = firstName;

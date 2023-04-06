@@ -1,13 +1,14 @@
 package database;
 
+import models.Department;
 import models.Hospital;
-import models.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
     private List<Hospital> hospitals = new ArrayList<>();
+    private List<Department> departments = new ArrayList<>();
 
     public Database() {
     }

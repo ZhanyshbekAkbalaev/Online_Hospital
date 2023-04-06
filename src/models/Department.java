@@ -1,13 +1,16 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
     private  Long id;
     private String departmentName;
-    private List<Doctor> doctors;
+    private List<Doctor> doctors = new ArrayList<>();
     public Department() {
     }
+
+
 
     public Department(Long id, String departmentName) {
         this.id = id;
@@ -43,7 +46,6 @@ public class Department {
     public void setDoctors(List<Doctor> doctors) {
         this.doctors = doctors;
     }
-
     @Override
     public String toString() {
         return "Department{" +
