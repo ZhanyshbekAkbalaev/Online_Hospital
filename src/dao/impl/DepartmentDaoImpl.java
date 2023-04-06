@@ -71,9 +71,8 @@ public class DepartmentDaoImpl implements DepartmentDao {
     public String updateDepartmentById(Long id, Department department) {
         for (Hospital hospital : database.getHospitals()) {
             for (Department hospitalDepartment : hospital.getDepartments()) {
-                if (id.equals(department.getId())) {
-                    department.setDepartmentName(department.getDepartmentName());
-
+                if (id.equals(hospitalDepartment.getId())) {
+                    hospitalDepartment.setDepartmentName(department.getDepartmentName());
                 } else {
                     return "not update";
                 }
