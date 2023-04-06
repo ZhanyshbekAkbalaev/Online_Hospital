@@ -12,6 +12,7 @@ public class HospitalDaoImpl implements HospitalDao {
 
     @Override
     public String addHospital(Hospital hospital) {
+        data.getHospitals().add(hospital);
         return "Succesfully add Hospital!";
     }
 
