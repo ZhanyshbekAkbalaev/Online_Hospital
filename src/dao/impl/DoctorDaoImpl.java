@@ -6,13 +6,9 @@ import models.Doctor;
 import java.util.List;
 
 public class DoctorDaoImpl implements DoctorDao{
-    Database database = new Database()
+    Database database = new Database();
     @Override
     public String addDoctorToHospital(Long id, Doctor doctor) {
-        databases.ad
-
-
-
         return null;
     }
 
