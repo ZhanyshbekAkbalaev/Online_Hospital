@@ -48,6 +48,7 @@ public class DoctorDaoImpl implements DoctorDao {
                 if (hosp.getId() == id) {
                     hospDoctor.setFirstName(doctor.getFirstName());
                     hospDoctor.setLastName(doctor.getLastName());
+                    hospDoctor.setExperienceYear(doctor.getExperienceYear());
                 }else {
                     System.out.println("doctor not renamed");
                 }
