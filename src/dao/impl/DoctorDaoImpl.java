@@ -1,11 +1,11 @@
 package dao.impl;
 
+import dao.DoctorDao;
 import database.Database;
 import models.Department;
 import models.Doctor;
 import models.Hospital;
 
-import javax.print.Doc;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
