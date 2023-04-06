@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Database {
     private List<Hospital> hospitals = new ArrayList<>();
-    private List<Department> departments = new ArrayList<>();
+    private final List<Department> departments = new ArrayList<>();
 
     public Database() {
     }

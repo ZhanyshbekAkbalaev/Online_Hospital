@@ -8,13 +8,18 @@ import models.Patient;
 import java.util.*;
 
 public class HospitalDaoImpl implements HospitalDao {
-    Database data = new Database();
+    private Database data;
+
+    public HospitalDaoImpl(Database data) {
+        this.data = data;
+    }
 
     @Override
     public String addHospital(Hospital hospital) {
         data.getHospitals().add(hospital);
         return "Successfully add Hospital!";
     }
+
 
     @Override
     public Hospital findHospitalById(Long id) {

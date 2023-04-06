@@ -9,6 +9,10 @@ import java.util.List;
 public class DoctorServiceImpl implements DoctorService {
     private DoctorDao dao;
 
+    public DoctorServiceImpl(DoctorDao dao) {
+        this.dao = dao;
+    }
+
     @Override
     public String addDoctorToHospital(Long id, Doctor doctor) {
         return dao.addDoctorToHospital(id, doctor);

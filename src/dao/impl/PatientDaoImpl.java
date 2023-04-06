@@ -10,8 +10,11 @@ import java.util.stream.Collectors;
 
 
 public class PatientDaoImpl implements PatientDao {
-    Database database;
+    private Database database;
 
+    public PatientDaoImpl(Database database) {
+        this.database = database;
+    }
 
     @Override
     public String addPatientToHospital(Long id, Patient patient) {

@@ -9,7 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentDaoImpl implements DepartmentDao {
-    private final Database database = new Database();
+    private Database database;
+
+    public DepartmentDaoImpl(Database database) {
+        this.database = database;
+    }
 
     @Override
     public String addDepartmentToHospital(Long id, Department department) {
@@ -17,6 +21,8 @@ public class DepartmentDaoImpl implements DepartmentDao {
             for (Hospital hospital : database.getHospitals()) {
                 if (hospital.getId().equals(id)) {
                     hospital.getDepartments().add(department);
+                    System.out.println(department.getDepartmentName());
+                    return "Successfully added to hospital";
                 } else {
                     return "Not add";
                 }
@@ -24,7 +30,7 @@ public class DepartmentDaoImpl implements DepartmentDao {
         } catch (RuntimeException e) {
             System.out.println(e.getMessage());
         }
-        return "Successfully added to hospital";
+        return null;
     }
 
     @Override

@@ -10,6 +10,10 @@ import java.util.Map;
 public class PatientServiceImpl implements PatientService {
     private PatientDao patientDao;
 
+    public PatientServiceImpl(PatientDao patientDao) {
+        this.patientDao = patientDao;
+    }
+
     @Override
     public String addPatientToHospital(Long id, Patient patient) {
         return patientDao.addPatientToHospital(id,patient);

@@ -10,7 +10,12 @@ import java.util.List;
 import java.util.Map;
 
 public class HospitalServiceImpl implements HospitalService {
-    private HospitalDao dao = new HospitalDaoImpl();
+    private HospitalDao dao;
+
+    public HospitalServiceImpl(HospitalDao dao) {
+        this.dao = dao;
+    }
+
     @Override
     public String addHospital(Hospital hospital) {
         return dao.addHospital(hospital);

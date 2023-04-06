@@ -1,5 +1,11 @@
+import dao.DepartmentDao;
 import dao.DoctorDao;
 import dao.HospitalDao;
+import dao.PatientDao;
+import dao.impl.DepartmentDaoImpl;
+import dao.impl.DoctorDaoImpl;
+import dao.impl.HospitalDaoImpl;
+import dao.impl.PatientDaoImpl;
 import database.Database;
 import enums.Gender;
 import models.Department;
@@ -22,10 +28,16 @@ import java.util.function.DoubleConsumer;
 
 public class Main {
     public static void main(String[] args) {
-        HospitalService hospitalService = new HospitalServiceImpl();
-        DepartmentService departmentService = new DepartmentServiceImpl();
-        PatientService patientService = new PatientServiceImpl();
-        DoctorService doctorService = new DoctorServiceImpl();
+
+        Database database = new Database();
+        HospitalDao hospitalDao = new HospitalDaoImpl(database);
+        HospitalService hospitalService = new HospitalServiceImpl(hospitalDao);
+        DepartmentDao dao = new DepartmentDaoImpl(database);
+        DepartmentService departmentService = new DepartmentServiceImpl(dao);
+        PatientDao patientDao = new PatientDaoImpl(database);
+        PatientService patientService = new PatientServiceImpl(patientDao);
+        DoctorDao doctorDao = new DoctorDaoImpl(database);
+        DoctorService doctorService = new DoctorServiceImpl(doctorDao);
         List<Patient> patients = new ArrayList<>();
         patients.add(new Patient(1L, "Sadyr", "Japarov", 46, Gender.MALE));
         patients.add(new Patient(2L, "Kurmanbek", "Bakiev", 50, Gender.MALE));
