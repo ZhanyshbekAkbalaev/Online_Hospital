@@ -1,5 +1,6 @@
 package service.impl;
 
+import dao.PatientDao;
 import models.Patient;
 import service.PatientService;
 
@@ -7,20 +8,21 @@ import java.util.List;
 import java.util.Map;
 
 public class PatientServiceImpl implements PatientService {
+    private PatientDao patientDao;
 
     @Override
     public String addPatientToHospital(Long id, Patient patient) {
-        return null;
+        return patientDao.addPatientToHospital(id,patient);
     }
 
     @Override
     public String addPatientsToHospital(Long id, List<Patient> patients) {
-        return null;
+        return patientDao.addPatientToHospital(id, (Patient) patients);
     }
 
     @Override
     public String updatePatientById(Long id, Patient patientsNewInfo) {
-        return null;
+        return patientDao.updatePatientById(id,patientsNewInfo);
     }
 
     @Override
@@ -30,16 +32,16 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public Patient getPatientById(Long id) {
-        return null;
+        return patientDao.getPatientById(id);
     }
 
     @Override
-    public Map<Integer, Patient> getPatientByAge() {
-        return null;
+    public Map<Integer, Patient> getPatientByAge(int age) {
+        return patientDao.getPatientByAge(age);
     }
 
     @Override
     public List<Patient> sortPatientsByAge(String ascOrDesc) {
-        return null;
+        return sortPatientsByAge(ascOrDesc);
     }
 }

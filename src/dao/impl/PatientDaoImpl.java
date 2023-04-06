@@ -115,7 +115,7 @@ public class PatientDaoImpl implements PatientDao {
                 } else if (ascOrDesc.equalsIgnoreCase("desc"))
 
                     return hospital.getPatients().stream().sorted(Comparator.comparing(Patient::getAge).
-                            reversed()).toList();
+                               reversed()).toList();
 
             }
 
