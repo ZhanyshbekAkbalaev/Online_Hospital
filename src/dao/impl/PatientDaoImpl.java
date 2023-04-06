@@ -16,15 +16,14 @@ public class PatientDaoImpl implements PatientDao {
     @Override
     public String addPatientToHospital(Long id, Patient patient) {
         for (Hospital hospital : database.getHospitals()) {
-            for (Patient hospitalPatient : hospital.getPatients()) {
-                if (id == hospitalPatient.getId()) {
-                    hospital.getPatients().add(patient);
-                } else {
-                    System.out.println("Not added");
-                }
+            if (hospital.getId() == id){
+                hospital.getPatients().add(patient);
+            } else {
+                return "Not added";
             }
         }
-        return "Patient s successfully saved!";
+        return "Patient s successful saved!";
+
     }
 
     @Override
@@ -59,8 +58,17 @@ public class PatientDaoImpl implements PatientDao {
 
     @Override
     public void removePatientById(Long id) {
+        for (Hospital hos :database.getHospitals()) {
+            for (Patient patient : hos.getPatients()) {
+                if (patient.getId() == id) {
+                    hos.getPatients().remove(patient);
+                }
+            }
+            database.getHospitals().remove(hos);
+            System.out.println("removed");
 
 
+        }
     }
 
     @Override

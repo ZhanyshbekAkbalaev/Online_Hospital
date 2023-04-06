@@ -1,6 +1,7 @@
 package database;
 
 import models.Hospital;
+import models.Patient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +31,6 @@ public class Database {
                 "hospitals=" + hospitals +
                 '}';
     }
+
+
 }
