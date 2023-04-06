@@ -9,6 +9,11 @@ public class Department {
     public Department() {
     }
 
+    public Department(Long id, String departmentName) {
+        this.id = id;
+        this.departmentName = departmentName;
+    }
+
     public Department(Long id, String departmentName, List<Doctor> doctors) {
         this.id = id;
         this.departmentName = departmentName;

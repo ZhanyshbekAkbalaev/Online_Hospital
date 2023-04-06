@@ -13,6 +13,12 @@ public class Hospital {
     public Hospital() {
     }
 
+    public Hospital(Long id, String hospitalName, String address) {
+        this.id = id;
+        this.hospitalName = hospitalName;
+        this.address = address;
+    }
+
     public Hospital(Long id, String hospitalName, String address, List<Department> departments, List<Doctor> doctors, List<Patient> patients) {
         this.id = id;
         this.hospitalName = hospitalName;
