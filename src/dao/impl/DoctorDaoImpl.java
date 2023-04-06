@@ -23,7 +23,7 @@ public class DoctorDaoImpl implements DoctorDao {
             }
         }
 
-        return null;
+        return " successfully added ";
     }
 
     @Override
