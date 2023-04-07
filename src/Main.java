@@ -94,7 +94,7 @@ public class Main {
                 case 13 -> System.out.println(doctorService.findDoctorById(4L));
                 case 14 -> System.out.println(doctorService.updateDoctor(4L, new Doctor(5L, "Jeyson", "Stathen", 40)));
                 case 15 -> doctorService.deleteDoctorById(5L);
-                case 16 -> System.out.println(doctorService.assignDoctorToDepartment(3L, longs));
+                case 16 -> System.out.println(doctorService.assignDoctorToDepartment(2L, longs));
                 case 17 -> System.out.println(doctorService.getAllDoctorsByHospitalId(1L));
                 case 18 -> System.out.println(doctorService.getAllDoctorsByDepartmentId(5L));
                 case 19 -> System.out.println(patientService.addPatientToHospital(1L, new Patient(7L, "F", "F", 18, Gender.MALE)));

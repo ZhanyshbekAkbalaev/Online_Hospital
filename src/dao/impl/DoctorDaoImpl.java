@@ -47,32 +47,42 @@ public class DoctorDaoImpl implements DoctorDao {
     }
     @Override
     public String updateDoctor(Long id, Doctor doctor) {
-        boolean isTrue = false;
-        for (Hospital hosp : database.getHospitals()) {
-            for (Doctor hospDoctor : hosp.getDoctors()) {
-                if (hospDoctor.getId() == id) {
-                    isTrue = false;
-                    hospDoctor.setFirstName(doctor.getFirstName());
-                    hospDoctor.setLastName(doctor.getLastName());
-                    hospDoctor.setExperienceYear(doctor.getExperienceYear());
-                    isTrue = true;
-                }else {
-                    System.out.println("doctor not renamed");
+        try {
+            boolean isTrue = false;
+            for (Hospital hosp : database.getHospitals()) {
+                for (Doctor hospDoctor : hosp.getDoctors()) {
+                    if (hospDoctor.getId() == id) {
+                        isTrue = false;
+                        hospDoctor.setId(doctor.getId());
+                        hospDoctor.setFirstName(doctor.getFirstName());
+                        hospDoctor.setLastName(doctor.getLastName());
+                        hospDoctor.setExperienceYear(doctor.getExperienceYear());
+                        isTrue = true;
+                    } else {
+                        System.out.println("doctor not renamed");
+                    }
                 }
             }
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
         }
         return "Update doctor Successfully";
     }
     @Override
     public void deleteDoctorById(Long id) {
-        for (Hospital hosp : database.getHospitals()) {
-            for (Doctor doctor : hosp.getDoctors()) {
-                if (doctor.getId() == id) {
-                    hosp.getDoctors().remove(doctor);
-                } else {
-                    System.out.println("no id!");
+        try {
+            for (Hospital hosp : database.getHospitals()) {
+                for (Doctor doctor : hosp.getDoctors()) {
+                    if (doctor.getId() == id){
+                        hosp.getDoctors().remove(doctor);
+                        System.out.println("delete doctor");
+                    } else {
+                        System.out.println("no id!");
+                    }
                 }
             }
+        }catch (RuntimeException e){
+            System.out.println(e.getMessage());
         }
     }
     @Override
