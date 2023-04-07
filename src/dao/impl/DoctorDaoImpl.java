@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.Objects;
 
 public class DoctorDaoImpl implements DoctorDao {
-    private Database database = new Database();
+    private Database database;
+
+    public DoctorDaoImpl(Database database) {
+        this.database = database;
+    }
 
     @Override
     public String addDoctorToHospital(Long id, Doctor doctor) {
@@ -19,6 +23,7 @@ public class DoctorDaoImpl implements DoctorDao {
             if (hosp.getId() == id) {
                 hosp.getDoctors().add(doctor);
                 System.out.println(hosp.getDoctors() + "doctor added successfully ");
+
             }
         }
 
@@ -30,9 +35,9 @@ public class DoctorDaoImpl implements DoctorDao {
         Doctor doctor1 = new Doctor();
         for (Hospital hosp : database.getHospitals()) {
             for (Doctor doctor : hosp.getDoctors()) {
-                if (doctor.getId() == id) {
-                    doctor1 = doctor;
-                } else {
+                if (doctor.getId()==id){
+                   doctor1 = doctor;
+                }else {
                     System.out.println("no such id");
 
                 }
@@ -40,7 +45,6 @@ public class DoctorDaoImpl implements DoctorDao {
         }
         return doctor1;
     }
-
     @Override
     public String updateDoctor(Long id, Doctor doctor) {
         for (Hospital hosp : database.getHospitals()) {
@@ -49,19 +53,18 @@ public class DoctorDaoImpl implements DoctorDao {
                     hospDoctor.setFirstName(doctor.getFirstName());
                     hospDoctor.setLastName(doctor.getLastName());
                     hospDoctor.setExperienceYear(doctor.getExperienceYear());
-                } else {
+                }else {
                     System.out.println("doctor not renamed");
                 }
             }
         }
         return "Update doctor Successfully";
     }
-
     @Override
     public void deleteDoctorById(Long id) {
         for (Hospital hosp : database.getHospitals()) {
             for (Doctor doctor : hosp.getDoctors()) {
-                if (Objects.equals(doctor.getId(), id)) {
+                if (doctor.getId() == id) {
                     hosp.getDoctors().remove(doctor);
                 } else {
                     System.out.println("no id!");
@@ -69,7 +72,6 @@ public class DoctorDaoImpl implements DoctorDao {
             }
         }
     }
-
     @Override
     public String assignDoctorToDepartment(Long departmentId, List<Long> doctorsId) {
         for (Hospital hosp : database.getHospitals()) {
@@ -96,7 +98,7 @@ public class DoctorDaoImpl implements DoctorDao {
         for (Hospital hospital : database.getHospitals()) {
             if (hospital.getId() == id) {
                 doctors.addAll(hospital.getDoctors());
-            } else {
+            }else {
                 System.out.println("did not find a doctor");
             }
         }
@@ -108,9 +110,9 @@ public class DoctorDaoImpl implements DoctorDao {
         List<Doctor> doctors = new ArrayList<>();
         for (Hospital hospital : database.getHospitals()) {
             for (Department department : hospital.getDepartments()) {
-                if (Objects.equals(department.getId(), id)) {
+                if (Objects.equals(department.getId(), id)){
                     doctors.addAll(department.getDoctors());
-                } else {
+                }else {
                     System.out.println("did not add a doctor to the department");
                 }
             }

@@ -21,7 +21,7 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public String addPatientsToHospital(Long id, List<Patient> patients) {
-        return patientDao.addPatientToHospital(id, (Patient) patients);
+        return patientDao.addPatientsToHospital(id,  patients);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class PatientServiceImpl implements PatientService {
 
     @Override
     public List<Patient> sortPatientsByAge(String ascOrDesc) {
-        return sortPatientsByAge(ascOrDesc);
+        return patientDao.sortPatientsByAge(ascOrDesc);
     }
 }
