@@ -47,12 +47,15 @@ public class DoctorDaoImpl implements DoctorDao {
     }
     @Override
     public String updateDoctor(Long id, Doctor doctor) {
+        boolean isTrue = false;
         for (Hospital hosp : database.getHospitals()) {
             for (Doctor hospDoctor : hosp.getDoctors()) {
-                if (hosp.getId() == id) {
+                if (hospDoctor.getId() == id) {
+                    isTrue = false;
                     hospDoctor.setFirstName(doctor.getFirstName());
                     hospDoctor.setLastName(doctor.getLastName());
                     hospDoctor.setExperienceYear(doctor.getExperienceYear());
+                    isTrue = true;
                 }else {
                     System.out.println("doctor not renamed");
                 }

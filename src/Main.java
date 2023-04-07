@@ -28,7 +28,6 @@ import java.util.function.DoubleConsumer;
 
 public class Main {
     public static void main(String[] args) {
-
         Database database = new Database();
         HospitalDao hospitalDao = new HospitalDaoImpl(database);
         HospitalService hospitalService = new HospitalServiceImpl(hospitalDao);
@@ -99,10 +98,10 @@ public class Main {
                 case 17 -> System.out.println(doctorService.getAllDoctorsByHospitalId(1L));
                 case 18 -> System.out.println(doctorService.getAllDoctorsByDepartmentId(5L));
                 case 19 -> System.out.println(patientService.addPatientToHospital(1L, new Patient(7L, "F", "F", 18, Gender.MALE)));
-                case 20 -> System.out.println(patientService.addPatientsToHospital(3L, patients));
-                case 21 -> System.out.println(patientService.updatePatientById(3L, new Patient(8L, "Askar", "Akiev", 70, Gender.MALE)));
-                case 22 -> patientService.removePatientById(8L);
-                case 23 -> System.out.println(patientService.getPatientById(1L));
+                case 20 -> System.out.println(patientService.addPatientsToHospital(1L, patients));
+                case 21 -> System.out.println(patientService.updatePatientById(7L, new Patient(8L, "Askar", "Akaev", 70, Gender.MALE)));
+                case 22 -> patientService.removePatientById(7L);
+                case 23 -> System.out.println(patientService.getPatientById(7L));
                 case 24 -> System.out.println(patientService.getPatientByAge(46));
                 case 25 -> System.out.println(patientService.sortPatientsByAge("asc"));
                 default -> System.out.println(num + " No NUMBER !!!!!!!!!!!!!!!!!!!");
